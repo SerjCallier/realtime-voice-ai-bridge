@@ -1,0 +1,27 @@
+{
+  "name": "realtime-voice-ai-bridge",
+  "version": "1.0.0",
+  "description": "Sub-second WebSocket Voice AI Audio Bridge: O(1) 64KB Mu-Law LUT DSP, <50ms barge-in interruption, Ghost Tools async dispatch, and carrier failover.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "demo": "node src/demo.js"
+  },
+  "keywords": [
+    "voice-ai",
+    "realtime-audio",
+    "gemini-live",
+    "twilio-websockets",
+    "telnyx",
+    "dsp",
+    "mulaw",
+    "barge-in",
+    "sub-second-latency"
+  ],
+  "author": "Sergio Callier <callier.sergio@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

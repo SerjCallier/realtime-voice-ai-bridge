@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" width="920" height="420" role="img" aria-label="Real-Time Voice AI Bridge Latency and DSP Architecture Chart">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111b2e"/>
+    </linearGradient>
+    <linearGradient id="redBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="greenBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="920" height="420" rx="14" fill="url(#bg)" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="32" y="42" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">
+    Real-Time Voice AI Bridge — Latency &amp; DSP Architecture
+  </text>
+  <text x="32" y="64" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="12.5">
+    O(1) 64KB Mu-Law LUT · Non-Blocking Ghost Tools · &lt;50ms Barge-In · Carrier Failover
+  </text>
+
+  <!-- Left Panel: Latency Comparison Chart -->
+  <rect x="32" y="86" width="420" height="220" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="50" y="114" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="700">
+    TURN LATENCY: BLOCKING TOOLS VS GHOST TOOLS
+  </text>
+
+  <!-- Bar 1: Standard Function Calling -->
+  <text x="50" y="146" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">
+    Synchronous LLM function_call (Audio Stream Paused)
+  </text>
+  <rect x="50" y="156" width="340" height="24" rx="5" fill="#1e293b"/>
+  <rect x="50" y="156" width="320" height="24" rx="5" fill="url(#redBar)"/>
+  <text x="378" y="173" fill="#fca5a5" font-family="Consolas, monospace" font-size="12" font-weight="700">~20.0s</text>
+
+  <!-- Bar 2: Ghost Tools -->
+  <text x="50" y="206" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">
+    Ghost Tools Async Dispatch (Stream Never Paused)
+  </text>
+  <rect x="50" y="216" width="340" height="24" rx="5" fill="#1e293b"/>
+  <rect x="50" y="216" width="22" height="24" rx="5" fill="url(#greenBar)"/>
+  <text x="82" y="233" fill="#6ee7b7" font-family="Consolas, monospace" font-size="12" font-weight="700">&lt; 1.0s (20x faster)</text>
+
+  <!-- Bar 3: Barge-In Reaction -->
+  <text x="50" y="264" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">
+    Barge-In Buffer Clear + DSP Frame Processing
+  </text>
+  <rect x="50" y="274" width="340" height="18" rx="4" fill="#1e293b"/>
+  <rect x="50" y="274" width="8" height="18" rx="4" fill="#10b981"/>
+  <text x="68" y="287" fill="#38bdf8" font-family="Consolas, monospace" font-size="11.5" font-weight="700">&lt; 50ms barge-in · p95 DSP: 0.029ms/frame</text>
+
+  <!-- Right Panel: DSP Sample-Rate Pipeline -->
+  <rect x="470" y="86" width="418" height="220" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="488" y="114" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="13.5" font-weight="700">
+    DUAL-PATH O(1) AUDIO DSP PIPELINE
+  </text>
+
+  <!-- Inbound row -->
+  <text x="488" y="143" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">INBOUND (USER -> MODEL)</text>
+  <rect x="488" y="152" width="110" height="36" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <text x="543" y="168" text-anchor="middle" fill="#f8fafc" font-family="Consolas, monospace" font-size="10.5" font-weight="700">8kHz Mu-Law</text>
+  <text x="543" y="181" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="9.5">Carrier WS</text>
+
+  <line x1="598" y1="170" x2="620" y2="170" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="620" y="152" width="122" height="36" rx="6" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
+  <text x="681" y="168" text-anchor="middle" fill="#f8fafc" font-family="Consolas, monospace" font-size="10.5" font-weight="700">256B LUT + Gate</text>
+  <text x="681" y="181" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="9.5">VAD Silence Clamp</text>
+
+  <line x1="742" y1="170" x2="764" y2="170" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="764" y="152" width="106" height="36" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="817" y="168" text-anchor="middle" fill="#f8fafc" font-family="Consolas, monospace" font-size="10.5" font-weight="700">16kHz PCM16</text>
+  <text x="817" y="181" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="9.5">Linear Upsample</text>
+
+  <!-- Outbound row -->
+  <text x="488" y="217" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">OUTBOUND (MODEL -> USER)</text>
+  <rect x="488" y="226" width="110" height="36" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+  <text x="543" y="242" text-anchor="middle" fill="#f8fafc" font-family="Consolas, monospace" font-size="10.5" font-weight="700">24kHz PCM16</text>
+  <text x="543" y="255" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="9.5">Realtime LLM</text>
+
+  <line x1="598" y1="244" x2="620" y2="244" stroke="#10b981" stroke-width="2"/>
+  <rect x="620" y="226" width="122" height="36" rx="6" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
+  <text x="681" y="242" text-anchor="middle" fill="#f8fafc" font-family="Consolas, monospace" font-size="10.5" font-weight="700">3:1 Decimate</text>
+  <text x="681" y="255" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="9.5">24kHz -&gt; 8kHz</text>
+
+  <line x1="742" y1="244" x2="764" y2="244" stroke="#10b981" stroke-width="2"/>
+  <rect x="764" y="226" width="106" height="36" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <text x="817" y="242" text-anchor="middle" fill="#f8fafc" font-family="Consolas, monospace" font-size="10.5" font-weight="700">64KB O(1) LUT</text>
+  <text x="817" y="255" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="9.5">8kHz Mu-Law</text>
+
+  <text x="488" y="288" fill="#6ee7b7" font-family="Segoe UI, Arial, sans-serif" font-size="11">
+    Zero floating-point quantization crunch · Constant O(1) per sample
+  </text>
+
+  <!-- Footer KPI Strip -->
+  <rect x="32" y="324" width="204" height="72" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <text x="48" y="352" fill="#38bdf8" font-family="Consolas, monospace" font-size="20" font-weight="700">20s -&gt; &lt;1s</text>
+  <text x="48" y="376" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11.5">Ghost Tools Turn Latency</text>
+
+  <rect x="250" y="324" width="204" height="72" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <text x="266" y="352" fill="#10b981" font-family="Consolas, monospace" font-size="20" font-weight="700">&lt; 50ms</text>
+  <text x="266" y="376" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11.5">Barge-In Playback Flush</text>
+
+  <rect x="468" y="324" width="204" height="72" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <text x="484" y="352" fill="#a78bfa" font-family="Consolas, monospace" font-size="20" font-weight="700">64 KB LUT</text>
+  <text x="484" y="376" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11.5">O(1) PCM16 &lt;-&gt; Mu-Law</text>
+
+  <rect x="686" y="324" width="202" height="72" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <text x="702" y="352" fill="#fbbf24" font-family="Consolas, monospace" font-size="20" font-weight="700">2 Carriers</text>
+  <text x="702" y="376" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11.5">Twilio + Telnyx Failover</text>
+</svg>

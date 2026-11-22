@@ -1,0 +1,37 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "heartbeatIntervalMs": 15000
+  },
+  "dsp": {
+    "carrierSampleRateHz": 8000,
+    "modelInputSampleRateHz": 16000,
+    "modelOutputSampleRateHz": 24000,
+    "noiseGateAmplitude": 100,
+    "outboundGain": 1.0,
+    "use64KbMulawLut": true
+  },
+  "bargeIn": {
+    "enabled": true,
+    "speechEnergyThreshold": 350,
+    "consecutiveSpeechFrames": 2,
+    "maxReactionBudgetMs": 50
+  },
+  "ghostTools": {
+    "enabled": true,
+    "stripTagsFromTranscript": true,
+    "dispatchTimeoutMs": 2500,
+    "routes": {
+      "[TRANSFER_NOW]": "call.transfer.primary_queue",
+      "[ESCALATE_HITL]": "alert.hitl.urgent",
+      "[BOOK_CALLBACK]": "crm.lead.callback",
+      "[END_CALL]": "call.terminate"
+    }
+  },
+  "carriers": {
+    "primary": "twilio",
+    "fallback": "telnyx",
+    "failoverOnStatusCodes": [400, 403, 429, 500, 502, 503]
+  }
+}
