@@ -3,7 +3,7 @@
 [![CI](https://github.com/SerjCallier/realtime-voice-ai-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/SerjCallier/realtime-voice-ai-bridge/actions)
 ![Node.js](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)
 ![Cero Deps](https://img.shields.io/badge/dependencias-0%20runtime-blue.svg)
-![Tests](https://img.shields.io/badge/tests-7%2F7%20pasando-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-8%2F8%20pasando-brightgreen.svg)
 ![Licencia](https://img.shields.io/badge/license-MIT-green.svg)
 
 [English](README.md) | **Español**
@@ -156,11 +156,14 @@ Requiere **Node.js 20+**. No necesita claves API ni `npm install`.
 git clone https://github.com/SerjCallier/realtime-voice-ai-bridge.git
 cd realtime-voice-ai-bridge
 
-# Correr suite determinista de unit tests (LUT DSP, noise gate, Ghost Tools, barge-in, failover)
+# Correr suite determinista de unit tests e integración HTTP/WebSocket
 npm test
 
 # Correr benchmark de 1.000 frames y simulación end-to-end
 npm run demo
+
+# Levantar servidor HTTP/WebSocket nativo (/health, /v1/dsp/inbound, /ws/media-stream)
+npm start
 ```
 
 ---

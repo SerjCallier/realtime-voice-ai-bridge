@@ -3,7 +3,7 @@
 [![CI](https://github.com/SerjCallier/realtime-voice-ai-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/SerjCallier/realtime-voice-ai-bridge/actions)
 ![Node.js](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)
 ![Zero Deps](https://img.shields.io/badge/dependencies-0%20runtime-blue.svg)
-![Tests](https://img.shields.io/badge/tests-7%2F7%20passing-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-8%2F8%20passing-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 **English** | [Español](README.es.md)
@@ -156,11 +156,14 @@ Requires **Node.js 20+**. No API keys or `npm install` needed.
 git clone https://github.com/SerjCallier/realtime-voice-ai-bridge.git
 cd realtime-voice-ai-bridge
 
-# Run deterministic unit test suite (DSP LUT, noise gate, Ghost Tools, barge-in, failover)
+# Run deterministic unit & HTTP/WebSocket integration test suite
 npm test
 
 # Run 1,000-frame DSP latency & event simulation benchmark
 npm run demo
+
+# Start native HTTP & WebSocket media-stream bridge server (GET /health, POST /v1/dsp/inbound, WS /ws/media-stream)
+npm start
 ```
 
 Observed benchmark output (`node src/demo.js`):
@@ -189,9 +192,12 @@ realtime-voice-ai-bridge/
 │   ├── ghost-tools.js            # Cross-chunk tag parser & idempotent async dispatcher
 │   ├── barge-in.js               # <50ms audio collision & buffer clear controller
 │   ├── carrier-adapter.js        # Twilio / Telnyx frame normalizer + failover
+│   ├── server.js                 # Native Node HTTP/WebSocket server (/health, /v1/dsp/inbound, /ws/media-stream)
 │   ├── index.js                  # Public module exports
 │   └── demo.js                   # Offline 1,000-frame benchmark & flow demo
-├── tests/voice-bridge.test.js    # 7 offline unit tests (node --test)
+├── tests/
+│   ├── voice-bridge.test.js      # 7 offline DSP/domain unit tests (node --test)
+│   └── server.test.js            # RFC 6455 WebSocket barge-in & HTTP integration test
 ├── config.example.json           # Minimal non-sensitive configuration schema
 ├── .env.example                  # Placeholder environment variables
 ├── README.md                     # English documentation

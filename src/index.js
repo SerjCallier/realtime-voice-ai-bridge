@@ -12,3 +12,4 @@ export {
 export { GhostToolRouter } from "./ghost-tools.js";
 export { BargeInController } from "./barge-in.js";
 export { CarrierFailoverAdapter } from "./carrier-adapter.js";
+export { createBridgeServer } from "./server.js";
